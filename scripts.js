@@ -28,19 +28,20 @@ function getSearchWeather(){
 
 }
 
+function getCurrLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(savePosition);
+  }else{
+    alert("Geolocation not supported");
+  }
+}
+function savePosition(position){
+  coords_local.lat = position.coords.latitude;
+  coords_local.long = position.coords.longitude;
+}
+
 $(document).ready(function(){
 
-  function getCurrLocation(){
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(savePosition);
-    }else{
-      alert("Geolocation not supported");
-    }
-  }
-  function savePosition(position){
-    coords_local.lat = position.coords.latitude;
-    coords_local.long = position.coords.longitude;
-  }
 
   //main body
   getCurrLocation();
