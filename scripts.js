@@ -2,17 +2,16 @@ var apiKey_forecast="/c85793a790b8bfb1e334c7c126839718/";
 var queryString_forecast="https://api.forecast.io/forecast";
 var apiKey_googleGeocode = "AIzaSyAPQEOpIRMn2R3W7SggIh4j1DZp50CX_x0	";
 var queryString_googleGeocode="https://maps.googleapis.com/maps/api/geocode/json?";
-var coords_local = {lat:"",long:""};
 var cityString="address=";
 queryString_forecast += apiKey_forecast;
 
 function searchCity(){
-  alert("good");
+  //eventually gonna get this working
 }
-function getLocalWeather(){//should be a way to consolidate local and non local weather into a single function
-  console.log(coords_local.lat);
-  console.log(coords_local.long);
-  queryString_forecast = queryString_forecast+coords_local.lat+","+coords_local.long;
+function getWeather(lat, long){//should be a way to consolidate local and non local weather into a single function
+  console.log(lat);
+  console.log(long);
+  queryString_forecast = queryString_forecast+lat+","+long;
   $.ajax({
     url:queryString_forecast,
     dataType:"jsonp",
@@ -27,23 +26,20 @@ function getLocalWeather(){//should be a way to consolidate local and non local 
 function getSearchWeather(){
 
 }
-
-function getCurrLocation(){
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(savePosition);
-  }else{
-    alert("Geolocation not supported");
-  }
-}
-function savePosition(position){
-  coords_local.lat = position.coords.latitude;
-  coords_local.long = position.coords.longitude;
-}
-
 $(document).ready(function(){
-
-
   //main body
+  function getCurrLocation(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(savePosition);
+    }else{
+      alert("Geolocation not supported");
+    }
+  }
+  function savePosition(position){
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    console.log("save");
+    getWeather(lat, long);
+  }
   getCurrLocation();
-  getLocalWeather();
 });
