@@ -2,6 +2,8 @@ var apiKey_forecast="/c85793a790b8bfb1e334c7c126839718/";
 var queryString_forecast="https://api.forecast.io/forecast";
 var apiKey_googleGeocode = "AIzaSyAPQEOpIRMn2R3W7SggIh4j1DZp50CX_x0	";
 var queryString_googleGeocode="https://maps.googleapis.com/maps/api/geocode/json?";
+var lat;
+var long;
 
 function searchCity(){
   alert("good");
@@ -19,10 +21,13 @@ function getLocalWeather(){//should be a way to consolidate local and non local 
   })
 }
 
+function getSearchWeather(){
+
+}
+
 $(document).ready(function(){
   var cityString="address=";
-  var lat;
-  var long;
+
   queryString_forecast += apiKey_forecast;
 
   function getCurrLocation(){
