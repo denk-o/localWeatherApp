@@ -3,10 +3,8 @@ var queryString_forecast="https://api.forecast.io/forecast";
 var apiKey_googleGeocode = "AIzaSyDq73ibmNV8HFrapwLzhiFhwLsi63uZ-jM	";
 var queryString_googleGeocode="https://maps.googleapis.com/maps/api/geocode/json?";
 var cityString="address=";
-var weatherString = queryString_forecast+apiKey_forecast
+var weatherString = queryString_forecast+apiKey_forecast;
 var googleString = queryString_googleGeocode;
-
-
 
 
 var weather_map={
@@ -41,8 +39,8 @@ function getWeather(lat, long){//should be a way to consolidate local and non lo
       var temp = data.currently.temperature;
       var status = data.currently.summary;
       var weather_icon=getWeatherIcon(data.currently.icon);
-      $("#weather_div").html("The current temperature is: "+temp+"<br/>"+
-        "The current weather is: "+status+
+      $("#weather_div").html("The current temperature is: "+temp+"<i class='wi wi-fahrenheit'></i>"+
+        "<br/>"+"The current weather is: "+status+
         " <i class='wi "+weather_icon+"'></i>");
     }
   });
@@ -76,8 +74,6 @@ function searchCity(){
         var city_lat = data.results[0].geometry.location.lat;
         var city_long= data.results[0].geometry.location.lng;
         $("#city_div").html(location);
-        console.log(city_lat);
-        console.log(city_long);
         getWeather(city_lat,city_long);
       }
       if(data.status=="ZERO_RESULTS"){
