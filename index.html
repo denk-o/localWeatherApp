@@ -3,6 +3,7 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/weather-icons-master/css/weather-icons.min.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<script src="jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script src="scripts.js" type="text/javascript"></script>
@@ -14,9 +15,9 @@
 		<div id="console_div">
 			<form class="form-inline">
 				<input type="text" id="location_in" class="form-control" />
-				<button type="input" class="btn btn-default" onclick=searchCity()>Search</button>
-				<button type="input" class="btn btn-default" onclick="getWeather()">Get Local Data</button>
+				<button type="button" class="btn btn-default" onclick="searchCity()">Search</button>
 			</form>
+			<button type="input" class="btn btn-default" onclick="getCurrLocation()">Get Local Data</button>
 		</div>
   </body>
 </html>
