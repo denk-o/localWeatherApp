@@ -1,1 +1,13 @@
+body{
+  background-color:#084F5A;
+  padding: 10%;
+}
 
+.weather-info{
+  font-family: 'Allerta', Helvetica,Arial,sans-serif;
+  font-size: 40px;
+  color:white;
+}
+#console_div{
+  width:640px;
+}

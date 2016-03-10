@@ -27,15 +27,12 @@ function getWeatherIcon(icon){
   else return icon in weather_map || (weather_map.icon="wi-day-sleet-storm");
 }
 
-function getWeather(lat, long){//should be a way to consolidate local and non local weather into a single function
-  console.log(lat);
-  console.log(long);
+function getWeather(lat, long){
   var a_weatherString=weatherString+lat+","+long;
   $.ajax({
     url:a_weatherString,
     dataType:"jsonp",
     success:function(data){
-      console.log(data);
       var temp = data.currently.temperature;
       var status = data.currently.summary;
       var weather_icon=getWeatherIcon(data.currently.icon);
@@ -46,7 +43,7 @@ function getWeather(lat, long){//should be a way to consolidate local and non lo
   });
 }
 function getCurrLocation(){
-  $("#city_div").html("Local");
+  $("#city_div").html("Local Weather");
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(savePosition);
   }else{
@@ -62,8 +59,8 @@ function savePosition(position){
 function searchCity(){
   //eventually gonna get this working
   var city = $("#location_in").val();
-  cityString+=city;
-  var a_queryString_googleGeocode=queryString_googleGeocode+cityString+"&key="+apiKey_googleGeocode;
+  var a_cityString=cityString+city;
+  var a_queryString_googleGeocode=queryString_googleGeocode+a_cityString+"&key="+apiKey_googleGeocode;
   $.ajax({
     url: a_queryString_googleGeocode,
     dataType: "json",
