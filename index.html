@@ -9,15 +9,22 @@
 		<script src="scripts.js" type="text/javascript"></script>
 	</head>
   <body>
+		<div id="city_div">
+
+		</div>
     <div id="weather_div">
 
     </div>
-		<div id="console_div">
-			<form class="form-inline">
-				<input type="text" id="location_in" class="form-control" />
-				<button type="button" class="btn btn-default" onclick="searchCity()">Search</button>
-			</form>
-			<button type="input" class="btn btn-default" onclick="getCurrLocation()">Get Local Data</button>
+		<div id="console_div" class="container">
+			<div class="col-md-6">
+				<form class="form-inline">
+					<input type="text" id="location_in" class="form-control"/>
+					<button type="button" class="btn btn-default" onclick="searchCity()">Search</button>
+				</form>
+			</div>
+			<div class="col-md-6">
+				<button type="input" class="btn btn-default" onclick="getCurrLocation()">Get Local Data</button>
+			</div>
 		</div>
   </body>
 </html>
